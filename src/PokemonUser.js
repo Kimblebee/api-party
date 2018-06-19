@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class GithubUser extends Component {
+class PokemonUser extends Component {
   constructor(props) {
     super(props)
 
@@ -12,14 +12,14 @@ class GithubUser extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.match.params.username !== this.props.match.params.username) {
+    if (prevProps.match.params.pokeName !== this.props.match.params.pokeName) {
       this.fetchUserData()
     }
   }
 
   fetchUserData = () => {
     const { params } = this.props.match
-    fetch(`https://api.github.com/users/${params.username}`)
+    fetch(`http://pokeapi.salestock.net/api/v2/pokemon/${params.pokeName}`)
       .then(response => response.json())
       .then(user => this.setState({ user }))
   }
@@ -29,15 +29,19 @@ class GithubUser extends Component {
 
     return (
       <div className="GithubUser">
+        <img src={user.avatar_url} alt="" />
         <h2>
           <a href={user.html_url} target="_blank">
-            {user.name} ({user.login})
+          Name: {user.name} 
           </a>
+          
+       
+
         </h2>
-        <h3>{user.location}</h3>
+        <h3>Weight: {user.weight} lbs</h3>
       </div>
     )
   }
 }
 
-export default GithubUser
+export default PokemonUser
