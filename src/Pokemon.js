@@ -27,10 +27,11 @@ class Pokemon extends Component {
           className="logo"
         />
 
+<iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/JuYeHPFR3f0?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <form onSubmit={this.handleSubmit}>
           <div>
             <input
-              type="number"
+              type="text"
               min="1"
               max="811"
               value={this.state.pokeName}

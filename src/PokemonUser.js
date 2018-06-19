@@ -29,16 +29,16 @@ class PokemonUser extends Component {
 
     return (
       <div className="GithubUser">
-        <img src={user.avatar_url} alt="" />
-        <h2>
+        <img src={user.front_default} alt="" />
+        
+        <h3>
           <a href={user.html_url} target="_blank">
           Name: {user.name} 
           </a>
-          
-       
+        </h3>
 
-        </h2>
         <h3>Weight: {user.weight} lbs</h3>
+        <h3>Pokedex no.: {user.id} </h3>
       </div>
     )
   }
